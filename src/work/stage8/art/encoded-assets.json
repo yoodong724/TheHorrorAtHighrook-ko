@@ -1,0 +1,80 @@
+{
+  "status": "encoded_pending_runtime_and_L2",
+  "assets": [
+    {
+      "resource_id": "unity:sharedassets1.assets:Texture2D:479",
+      "path": "work/stage8/art/wishlist-ko-native.png",
+      "sha256": "c4d29de56edf174220c7f0757a3d38904b62577fc104f2e71a3fd9f1a18c3acb",
+      "width": 563,
+      "height": 245,
+      "allowed_regions": [
+        [
+          0,
+          0,
+          563,
+          245
+        ]
+      ],
+      "alpha": "source exact",
+      "artwork_identity": "generative re-render; full texture replacement region declared",
+      "source_alpha_sha256": "1bb5fab6805dc0eef52e539bcd5b9265fe4673aab2b43610ed67d8317288e220",
+      "generated_rgb_sha256": "c41a75dbde38d08f7bf6db8b966fd2e65a42cd639e23d2111610f157dc1231a2"
+    },
+    {
+      "resource_id": "unity:sharedassets1.assets:Texture2D:434",
+      "path": "work/stage8/art/charactersheet-ko-native.png",
+      "sha256": "d86c25fef461acdbf000dd814ffb8a8bc4eab8a76236278db92c98542788b0b6",
+      "width": 455,
+      "height": 666,
+      "allowed_regions": [
+        [
+          0,
+          0,
+          455,
+          666
+        ]
+      ],
+      "alpha": "source exact",
+      "artwork_identity": "generative re-render; full texture replacement region declared",
+      "source_alpha_sha256": "f444e3fdcc3d1142fbdd62027cb46c89176b491ab049958804c18838fcda444c",
+      "generated_rgb_sha256": "b1c0bff669e24cd5fc08d46ee97bde1f90505f1c4505eace3a5053a80fe67ce0"
+    },
+    {
+      "resource_id": "loose:Newspaper.png",
+      "path": "work/stage8/art/newspaper-ko-native.png",
+      "sha256": "d5599e5b4088093fb2f3beca55d6bcfbb4e65fe30187f3cb4f4e432cd2d551aa",
+      "width": 256,
+      "height": 256,
+      "allowed_regions": [
+        [
+          0,
+          0,
+          256,
+          256
+        ]
+      ],
+      "alpha": "source exact",
+      "artwork_identity": "generative re-render; full texture replacement region declared",
+      "source_alpha_sha256": "1694473ba6389c29561618b774cf4287b1943818a6590646405711460db54269",
+      "generated_rgb_sha256": "91b217837403bb6f51eeea09ee8137f96e328af5325eb3deff06042526c29b9f"
+    },
+    {
+      "resource_id": "unity:sharedassets3.assets:Texture2D:16",
+      "path": "work/stage8/art/title-ko-native.png",
+      "sha256": "1cb74173df90f55333936c8405e66c05c0a5e0a12283b057ae3b3570415ec742",
+      "width": 1920,
+      "height": 1080,
+      "allowed_regions": [
+        [
+          0,
+          0,
+          1920,
+          1080
+        ]
+      ],
+      "encoding": "original white RGB + generated title mask alpha; matches source shader convention",
+      "text": "하이루크의\n공포",
+      "approval": "current hr-076 image ID L1; old PoC approval not reused"
+    }
+  ]
+}

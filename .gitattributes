@@ -1,0 +1,4 @@
+* -text
+*.cmd whitespace=cr-at-eol
+**/OFL.txt -whitespace
+installer/install.ps1 whitespace=-blank-at-eof
