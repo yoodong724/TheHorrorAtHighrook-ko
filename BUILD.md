@@ -16,7 +16,9 @@ python3 -m venv .venv
 설치용 ZIP은 다음 명령으로 만듭니다.
 
 ```bash
-python3 package.py --patch /tmp/highrook-ko-output/highrook-ko-test.patch.zip --output dist/Highrook-ko-v0.1.0-beta.1.zip
+python3 package.py --patch /tmp/highrook-ko-output/highrook-ko-test.patch.zip --output dist/Highrook-ko-v1.0.0.zip
 ```
+
+설치 ZIP에는 `highrook-ko/` 폴더가 포함됩니다. 내부 차이 패치는 기존 검증본과 바이트가 같으며, 빌드 참조의 시험 당시 메타데이터는 재현성과 기존 백업 호환성을 위해 유지합니다. 정식 배포 버전은 설치 ZIP과 GitHub 릴리스의 `v1.0.0`입니다.
 
 글꼴은 `src/assets/font/OFL.txt`의 SIL Open Font License 1.1을 따릅니다. Mono.Cecil.dll은 별도로 준비해야 합니다. 재현에 사용한 DLL의 SHA-256은 `c41bdb9ffd3c5f6e17d2382c1012d73703e035e3f1100245fdd4e08c8dc6eb5b`입니다.

@@ -9,7 +9,7 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2.0
 
-if ([string]::IsNullOrWhiteSpace($Package)) { $Package = Join-Path $PSScriptRoot 'highrook-ko-test.patch.zip' }
+if ([string]::IsNullOrWhiteSpace($Package)) { $Package = Join-Path $PSScriptRoot 'highrook-ko.patch.zip' }
 
 $script:ExpectedPackageSha256 = '0f2daafdeebf65eff98e06521ff8fdcf8e571bd829de4110b2db1f1640a3282c'
 $script:ExpectedPackageId = 'be4e30b724e1cc5c6e8192ff'

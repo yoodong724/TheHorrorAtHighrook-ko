@@ -7,7 +7,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parent
 FILES = (
-    "README.md", "OFL.txt", "install-steam.cmd", "restore-steam.cmd",
+    "README.md", "OFL.txt", "install.cmd", "restore.cmd",
     "install.ps1", "steam-auto.ps1",
 )
 
@@ -18,7 +18,11 @@ def main():
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     entries = {name: (ROOT / "installer" / name).read_bytes() for name in FILES}
-    entries["highrook-ko-test.patch.zip"] = args.patch.read_bytes()
+    patch = args.patch.read_bytes()
+    expected = "0f2daafdeebf65eff98e06521ff8fdcf8e571bd829de4110b2db1f1640a3282c"
+    if hashlib.sha256(patch).hexdigest() != expected:
+        parser.error("--patch must be the verified byte-delta ZIP, not an installer ZIP")
+    entries["highrook-ko.patch.zip"] = patch
     entries["SHA256SUMS.txt"] = "".join(
         f"{hashlib.sha256(data).hexdigest()}  {name}\n"
         for name, data in sorted(entries.items())
@@ -26,7 +30,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(args.output, "x", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, data in sorted(entries.items()):
-            info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
+            info = zipfile.ZipInfo("highrook-ko/" + name, (1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3
             info.external_attr = 0o100644 << 16

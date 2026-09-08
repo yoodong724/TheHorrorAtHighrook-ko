@@ -2,6 +2,7 @@
 param(
     [ValidateSet('Install','Restore')][string]$Action = 'Install',
     [switch]$DiscoverOnly,
+    [switch]$Local,
     [string]$SteamRoot,
     [string]$Package
 )
@@ -9,7 +10,7 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2.0
 
-if ([string]::IsNullOrWhiteSpace($Package)) { $Package = Join-Path $PSScriptRoot 'highrook-ko-test.patch.zip' }
+if ([string]::IsNullOrWhiteSpace($Package)) { $Package = Join-Path $PSScriptRoot 'highrook-ko.patch.zip' }
 
 $script:GameFolder = 'The Horror at Highrook'
 $script:GameExe = 'TheHorrorAtHighrook.exe'
@@ -131,7 +132,12 @@ function Invoke-DirectInstallCore([string]$Target,[string]$PackagePath) { return
 function Invoke-DirectRestoreCore([string]$Target,[string]$PackagePath) { return Invoke-Restore $Target $script:PackageId $PackagePath }
 
 function Invoke-SteamDirect([string]$RequestedAction,[string]$OverrideRoot,[string]$PackagePath) {
-    $target = Select-SteamGame $OverrideRoot
+    if ($Local) {
+        $target = Get-NormalPath (Join-Path $PSScriptRoot '..')
+        if (-not (Test-Path -LiteralPath (Join-Path $target $script:GameExe) -PathType Leaf)) {
+            throw 'Extract the highrook-ko folder into the game folder, then run highrook-ko\install.cmd.'
+        }
+    } else { $target = Select-SteamGame $OverrideRoot }
     Assert-NoReparseTree $target
     $installer = Join-Path $PSScriptRoot 'install.ps1'
     if (-not (Test-Path -LiteralPath $installer -PathType Leaf)) { throw "Direct installer is missing: $installer" }
